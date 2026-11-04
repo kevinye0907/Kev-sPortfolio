@@ -38,8 +38,9 @@
   navList?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
-  /* ---------- Highlight the current section in the nav ---------- */
+  /* ---------- Active section + scroll reveal ---------- */
   const navLinks = navList ? [...navList.querySelectorAll('a[href^="#"]')] : [];
+  const reveals = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
     const spy = new IntersectionObserver((entries) => {
@@ -52,6 +53,17 @@
       const target = document.querySelector(a.getAttribute('href'));
       if (target) spy.observe(target);
     });
+
+    const revealer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    reveals.forEach((el) => revealer.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('in'));
   }
 
   /* ---------- Carousels ---------- */
