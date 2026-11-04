@@ -844,6 +844,8 @@ svg.icon.filled { fill: currentColor; stroke: none; }
 .more[open] summary::after { transform: rotate(45deg); }
 .more .bullets { margin: 0; padding: 0 20px 14px 36px; font-size: 15.5px; }
 
+.project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
 /* Click-to-enlarge images */
 .zoom {
   position: relative;
