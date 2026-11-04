@@ -4,583 +4,617 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cheng (Kevin) Shao | Electrical Engineering Portfolio</title>
-    <style>
-        /* --- CSS STYLES --- */
-        :root {
-            --primary: #003366; /* Engineering Blue */
-            --accent: #F4D03F; /* Highlight Yellow */
-            --text: #333;
-            --bg: #f9f9f9;
-            --white: #ffffff;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--bg);
-        }
+    <meta name="description" content="Portfolio of Cheng (Kevin) Shao, Electrical Engineering student at the University of Waterloo: embedded systems, DAQ, PCB design, and UW Baja SAE projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cheng (Kevin) Shao | Electrical Engineering Portfolio">
+    <meta property="og:description" content="Electrical Engineering student at the University of Waterloo: embedded systems, DAQ, PCB design, and UW Baja SAE projects.">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#003366">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003366'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' fill='%23F4D03F' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
 
-        /* HEADER */
-        header {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 5rem 1rem;
-            text-align: center;
-        }
-        
-        h1 { margin: 0; font-size: 3rem; letter-spacing: 1px; }
-        h2 { font-weight: 300; font-size: 1.4rem; margin-top: 15px; color: #ddd; }
-        
-        .contact-bar {
-            margin-top: 25px;
-            padding: 12px 25px;
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            border-radius: 50px;
-        }
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+        document.documentElement.classList.add('js');
+        try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
 
-        .contact-bar a {
-            color: var(--accent);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .contact-bar a:hover { text-decoration: underline; }
-
-        /* CONTAINER & SECTIONS */
-        .container {
-            max-width: 950px;
-            margin: auto;
-            padding: 3rem 2rem;
-        }
-
-        section {
-            background: var(--white);
-            padding: 3rem;
-            margin-bottom: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        
-        .section-title {
-            border-left: 6px solid var(--accent);
-            padding-left: 20px;
-            margin-bottom: 30px;
-            color: var(--primary);
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 1.4rem;
-        }
-
-        p { margin-bottom: 1.5rem; }
-
-        /* ABOUT ME LAYOUT */
-        .about-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 2.5rem;
-        }
-        
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--accent);
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .about-text { font-size: 1.05rem; color: #444; }
-
-        /* SKILLS TAGS */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
-        .skill-tag {
-            background: #f0f4f8;
-            padding: 10px 18px;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-            border: 1px solid #dbe2e8;
-            transition: background 0.2s;
-        }
-        .skill-tag:hover { background: #e1eef9; }
-
-        /* PROJECT SECTION */
-        .project-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .project-header {
-            background: var(--primary);
-            color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .project-body { padding: 2.5rem; }
-
-        .project-content-wrapper {
-            display: flex;
-            gap: 2.5rem;
-            align-items: flex-start;
-        }
-
-        .project-info { flex: 1; }
-        
-        .project-visual { flex: 0 0 38%; }
-        
-        /* STANDARD IMAGES */
-        .project-visual > img, .experience-visual img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            border: 1px solid #eee;
-            margin-bottom: 15px;
-        }
-        
-        /* CAROUSEL / SLIDER STYLES */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #eee;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            margin-bottom: 10px;
-        }
-        
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) #eee;
-            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-        }
-        
-        /* Custom scrollbar for webkit (Chrome/Safari) */
-        .carousel::-webkit-scrollbar { height: 8px; }
-        .carousel::-webkit-scrollbar-track { background: #eee; }
-        .carousel::-webkit-scrollbar-thumb { background-color: var(--accent); border-radius: 4px; }
-        
-        .carousel-item {
-            flex: 0 0 100%;
-            scroll-snap-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: var(--white);
-        }
-        
-        .carousel-item img {
-            width: 100%;
-            border: none;
-            box-shadow: none;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 0;
-        }
-        
-        .carousel-caption {
-            font-size: 0.85rem;
-            color: #555;
-            text-align: center;
-            padding: 12px;
-            background: #fdfdfd;
-            width: 100%;
-            box-sizing: border-box;
-            border-top: 1px solid #eee;
-        }
-
-        .scroll-hint {
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: bold;
-            opacity: 0.8;
-        }
-
-        .project-detail-block { margin-bottom: 25px; }
-        .project-detail-block h4 {
-            color: var(--primary);
-            margin-bottom: 8px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            font-size: 1.1rem;
-        }
-        .project-detail-block ul { padding-left: 20px; }
-        .project-detail-block li { margin-bottom: 10px; color: #555; }
-
-        /* TRADES GRID */
-        .trades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .trade-item {
-            background: #fdfdfd;
-            border: 1px solid #eee;
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-        
-        .trade-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-        
-        .trade-item h4 { margin-top: 0; color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; }
-        .trade-item p { font-size: 0.95rem; color: #555; }
-
-        /* TIMELINE */
-        .timeline-item {
-            border-left: 4px solid var(--accent);
-            padding-left: 30px;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .timeline-item.no-marker {
-            border-left: none;
-            padding-left: 0;
-        }
-        .timeline-item.no-marker::before {
-            display: none;
-        }
-        
-        .role { font-weight: 800; font-size: 1.25rem; color: #222; }
-        .company { color: var(--primary); font-weight: 700; font-size: 1.1rem; margin-top: 5px;}
-        .date { font-size: 0.95rem; color: #666; margin-bottom: 15px; display: block; font-style: italic; }
-        
-        .experience-desc {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .timeline-item ul { margin: 15px 0 0 0; padding-left: 20px; }
-        .timeline-item li { margin-bottom: 10px; color: #444; }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: #eee;
-            font-size: 1rem;
-            color: #555;
-            margin-top: 3rem;
-        }
-        
-        .download-btn {
-            background-color: var(--accent);
-            color: var(--primary);
-            padding: 14px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 25px;
-            transition: background 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .download-btn:hover { background-color: #d4ae10; }
-
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
-            .about-container { flex-direction: column; align-items: center; text-align: center; }
-            .project-content-wrapper, .experience-content-wrapper { flex-direction: column-reverse; }
-            .project-visual, .experience-visual { width: 100%; margin-bottom: 25px; }
-            header { padding: 3rem 1rem; }
-            h1 { font-size: 2.2rem; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <header>
-        <h1>Cheng (Kevin) Shao</h1>
-        <h2>B.A.Sc. Electrical Engineering Student | University of Waterloo</h2>
-        
-        <div class="contact-bar">
-            <a href="mailto:Kevinye0907@gmail.com">Kevinye0907@gmail.com</a>
-            <a href="https://www.linkedin.com/in/kevin-shao-1b6358383/?skipRedirect=true">LinkedIn</a>
-            <a href="https://github.com/kevinye0907">GitHub</a>
+    <!-- Icon set (referenced below with <use href="#i-...">) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+        <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+        <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+        <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+        <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+        <symbol id="i-circuit" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><circle cx="19" cy="5" r="2"/><path d="M7 5h4l3 3v9l2 2M17 5h-3"/><path d="M5 7v10a2 2 0 0 0 2 2h4"/></symbol>
+        <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+        <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+        <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 17H3v-5l2.2-5.2A2 2 0 0 1 7 5.5h10a2 2 0 0 1 1.8 1.3L21 12v5h-2M9 17h6M3 12h18"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></symbol>
+        <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21z"/><path d="m7.5 12.5 2 2M10.5 9.5l2 2M13.5 6.5l2 2"/></symbol>
+        <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.7 7-6.6 0-3.5-2.4-5.6-4-7.4-.4 2-1.6 3.1-2.6 3.4.3-3.5-1.3-6.8-4.4-9.4.2 3.7-3 6.1-3 10.4C5 19.3 8 22 12 22z"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="#top" aria-label="Kevin Shao, back to top">
+                <span class="brand-mark" aria-hidden="true">KS</span>
+                <span>Kevin Shao</span>
+            </a>
+
+            <nav aria-label="Primary">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#trades">Trades</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark theme">
+                    <svg class="icon moon" aria-hidden="true"><use href="#i-moon"/></svg>
+                    <svg class="icon sun" aria-hidden="true"><use href="#i-sun"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm btn-resume" href="Kevin_Shao_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+                    <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+                </button>
+            </div>
         </div>
-        <br>
-        <a href="Kevin_Shao_Resume.pdf" class="download-btn" target="_blank">Download Full Resume</a>
     </header>
 
-    <div class="container">
+    <main id="main">
 
-        <section id="about">
-            <h3 class="section-title">My Journey to Engineering</h3>
-            <div class="about-container">
-                <img src="profile.jpg" alt="Kevin Shao" class="profile-pic">
-                
-                <div class="about-text">
-                    <p>
-                        I am an Electrical Engineering student at the University of Waterloo, passionate about how hardware and software converge to solve physical problems. My academic focus lies in embedded systems, IoT architecture, and data acquisition (DAQ) circuitry.
-                    </p>
-                    <p>
-                        My path to engineering was not traditional. Before entering Waterloo, I completed the VIU Trades Program, where I gained rigorous hands-on experience in automotive repair and electrical fabrication. While many engineers begin with theory, I began with a wrench and a multimeter.
-                    </p>
-                    <p>
-                        From that experience came an unusual sense of how things fit together mechanically. Designing a circuit now involves more than lines on paper - it includes understanding how parts integrate into a larger system, heat management, and structural reliability. I am actively applying these skills on the UW Baja SAE team and am preparing for my upcoming Fall 2026 Co-op placement as an Electrical Site Coordinator Intern at Boralex.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="top">
+            <!-- Decorative PCB traces with moving "signals" -->
+            <svg class="hero-traces" viewBox="0 0 1200 640" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+                <path class="trace" d="M560 120 H760 L800 160 H980 L1020 120 H1240"/>
+                <path class="trace" d="M620 250 H700 L740 290 H900 L940 250 H1060 L1100 290 H1240"/>
+                <path class="trace" d="M520 400 H820 L860 440 H1240"/>
+                <path class="trace" d="M700 560 H880 L920 520 H1240"/>
+                <path class="trace" d="M1000 -10 V40 L1040 80 V200 L1000 240"/>
+                <path class="signal" d="M560 120 H760 L800 160 H980 L1020 120 H1240"/>
+                <path class="signal s2" d="M620 250 H700 L740 290 H900 L940 250 H1060 L1100 290 H1240"/>
+                <path class="signal s3" d="M520 400 H820 L860 440 H1240"/>
+                <circle class="pad" cx="560" cy="120" r="7"/>
+                <circle class="pad" cx="620" cy="250" r="7"/>
+                <circle class="pad" cx="520" cy="400" r="7"/>
+                <circle class="pad" cx="700" cy="560" r="7"/>
+                <circle class="pad" cx="1000" cy="240" r="7"/>
+                <circle class="pad" cx="800" cy="160" r="4"/>
+                <circle class="pad" cx="940" cy="250" r="4"/>
+                <circle class="pad" cx="860" cy="440" r="4"/>
+            </svg>
 
-        <section>
-            <h3 class="section-title">Technical Arsenal</h3>
-            <div class="skills-container">
-                <span class="skill-tag">C++ & HTML</span>
-                <span class="skill-tag">Arduino / ESP32</span>
-                <span class="skill-tag">IoT & Wireless Protocols</span>
-                <span class="skill-tag">Data Acquisition (DAQ)</span>
-                <span class="skill-tag">Circuit Analysis & PCB Design (KiCad)</span>
-                <span class="skill-tag">Sensor Integration (MPU6050, Hall Effect)</span>
-                <span class="skill-tag">Wire Harnessing</span>
-                <span class="skill-tag">Soldering & Power Tools</span>
-                <span class="skill-tag">Mandarin (Fluent Spoken)</span>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="section-title">Professional Experience</h3>
-            
-            <div class="timeline-item no-marker">
-                <div class="role">Electrical Site Coordinator Intern</div>
-                <div class="company">Boralex Inc. | Woodstock, ON</div>
-                <span class="date">Sept 2026 – Dec 2026</span>
-                
-                <div class="project-content-wrapper" style="margin-top: 15px;">
-                    <div class="project-info">
-                        <p class="experience-desc">
-                            Joining the construction and engineering team for the 125 MW/500 MWh Oxford Battery Energy Storage System (BESS) project. Reporting directly to the Site Manager, I am responsible for monitoring and overseeing on-site electrical work while ensuring effective project management focused on quality, environmental compliance, and worker safety.
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <p class="eyebrow">Electrical Engineering · University of Waterloo</p>
+                        <h1>Cheng (Kevin) <span class="hl">Shao</span></h1>
+                        <p class="lede">I build embedded systems, data acquisition hardware, and power electronics, from the KiCad schematic all the way to the wire harness.</p>
+                        <p class="status">
+                            <span class="pulse" aria-hidden="true"></span>
+                            <span><strong>Now:</strong> Electrical Site Coordinator Intern at Boralex · Fall 2026</span>
                         </p>
-                        <ul>
-                            <li>Conducting regular site inspections and auditing contractor work according to technical plans, specifications, and the overarching quality program.</li>
-                            <li>Maintaining direct communication with contractors to ensure strict compliance with health and safety requirements, environmental regulations, cost control, and project schedules.</li>
-                            <li>Drafting and reviewing vital project documentation, including progress reports, technical requests for information (RFIs), procurement tracking, and deficiency records.</li>
-                            <li>Ensuring all site activities fully comply with legal and regulatory approvals, the environmental management plan, and all associated permits.</li>
+                        <div class="cta">
+                            <a class="btn btn-primary" href="#projects">
+                                View projects
+                                <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                            <a class="btn btn-ghost" href="Kevin_Shao_Resume.pdf" target="_blank" rel="noopener">
+                                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                                Download resume
+                            </a>
+                        </div>
+                        <ul class="socials">
+                            <li><a class="icon-btn" href="mailto:kevinye0907@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+                            <li><a class="icon-btn" href="https://www.linkedin.com/in/kevin-shao-1b6358383/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="icon filled" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+                            <li><a class="icon-btn" href="https://github.com/kevinye0907" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="icon filled" aria-hidden="true"><use href="#i-github"/></svg></a></li>
                         </ul>
                     </div>
-                    <div class="project-visual">
-                        <img src="boralex--600.png" alt="Boralex Inc. Logo" style="max-width: 250px; margin: 0 auto; display: block; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    </div>
-                </div>
-            </div>
 
-            <div class="timeline-item no-marker">
-                <div class="role">Electrical Team Member</div>
-                <div class="company">University of Waterloo Baja SAE Team | Waterloo, ON</div>
-                <span class="date">Jan 2026 – Present</span>
-                
-                <div class="project-content-wrapper" style="margin-top: 15px;">
-                    <div class="project-info">
-                        <p class="experience-desc">
-                            As a core member of the electrical sub-team, I am deeply involved in designing and implementing the electronic backbone for our 10 HP off-road competition vehicle. My primary focus is on robust telemetry and system regulation in extreme environments.
-                        </p>
-                        <ul>
-                            <li>Integrating and testing a Data Acquisition (DAQ) system using Arduino, MPU6050 accelerometers, and custom RPM sensors to provide live vehicle diagnostics.</li>
-                            <li>Designing custom PCBs, including a 19V-13V buck converter, to reliably regulate drill battery power for internal electrical components during harsh races.</li>
-                            <li>Researching and coding strain gauges to extract live telemetry data, aiding the dynamics team in comprehensive system calibration.</li>
-                            <li>Fabricating space-efficient wire harnesses and designing circuit schematics to ensure the 2026 vehicle is competition-ready and fault-tolerant.</li>
-                        </ul>
-                    </div>
-                    <div class="project-visual">
-                        <img src="baja-buggy.jpg" alt="University of Waterloo Baja SAE Buggy">
-                        <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Our Baja SAE chassis in the workshop, awaiting final electrical harnessing.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item no-marker">
-                <div class="role">Project Team Member</div>
-                <div class="company">Waterloo Experience (WE) Accelerate Program | Remote</div>
-                <span class="date">Winter 2026</span>
-                <p class="experience-desc">
-                    Conducted comprehensive accessibility and usability audits of five faculty co-op community pages, successfully identifying and documenting critical UI/UX failures. Developed digital accessibility micro-course modules with a strong focus on accessible HTML, CSS, and inclusive web design practices. Evaluated digital environments to ensure strict compliance with AODA and WCAG standards.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="section-title">Featured Projects</h3>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <strong>19V-13V Buck Converter Board (Baja SAE)</strong>
-                    <small>Jan 2026 - Present</small>
-                </div>
-                <div class="project-body">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-detail-block">
-                                <h4>System Overview</h4>
-                                <p>To optimize our Baja SAE vehicle's electrical reliability, I engineered a custom step-down switching regulator PCB to convert a 19V drill battery input into a stable 13V output for our live telemetry framework.</p>
+                    <div class="hero-visual">
+                        <div class="portrait">
+                            <span class="tick tl" aria-hidden="true"></span>
+                            <span class="tick tr" aria-hidden="true"></span>
+                            <span class="tick bl" aria-hidden="true"></span>
+                            <span class="tick br" aria-hidden="true"></span>
+                            <div class="portrait-frame">
+                                <img src="profile.jpg" alt="Portrait of Kevin Shao" width="705" height="800">
                             </div>
+                            <div class="float-chip chip-a" aria-hidden="true"><span class="mono-label">Team</span>UW Baja SAE · Electrical</div>
+                            <div class="float-chip chip-b" aria-hidden="true"><span class="mono-label">Co-op</span>Boralex · Oxford BESS</div>
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="project-detail-block">
-                                <h4>Technical Implementation</h4>
-                                <ul>
+                <ul class="stats">
+                    <li class="stat"><span class="stat-value">125 MW</span><span class="stat-label">Oxford battery storage project, Boralex co-op</span></li>
+                    <li class="stat"><span class="stat-value">19→13 V</span><span class="stat-label">Custom buck converter PCB for Baja SAE</span></li>
+                    <li class="stat"><span class="stat-value">10 HP</span><span class="stat-label">Off-road competition vehicle, electrical sub-team</span></li>
+                    <li class="stat"><span class="stat-value">4</span><span class="stat-label">Trade disciplines from the VIU Trades Program</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===================== ABOUT ===================== -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label"><span class="num">01</span>About</p>
+                    <h2 class="section-title">From the trades shop to electrical engineering.</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>I am an Electrical Engineering student at the University of Waterloo, passionate about how hardware and software converge to solve physical problems. My academic focus lies in embedded systems, IoT architecture, and data acquisition (DAQ) circuitry.</p>
+                        <p>My path to engineering was not traditional. Before entering Waterloo, I completed the VIU Trades Program, where I gained rigorous hands-on experience in automotive repair and electrical fabrication. While many engineers begin with theory, I began with a wrench and a multimeter.</p>
+                        <p>From that experience came an unusual sense of how things fit together mechanically. Designing a circuit now involves more than lines on paper - it includes understanding how parts integrate into a larger system, heat management, and structural reliability. I have been applying these skills on the UW Baja SAE team, and I am currently completing my Fall 2026 co-op term as an Electrical Site Coordinator Intern at Boralex.</p>
+                    </div>
+
+                    <aside class="card path reveal" style="--d: 1" aria-label="Timeline">
+                        <h3>The path so far</h3>
+                        <ol>
+                            <li><time>Sep 2024</time><strong>VIU Trades Program</strong><span>Electrical, automotive, fabrication, welding</span></li>
+                            <li><time>Fall 2025</time><strong>ECE 198 design project</strong><span>Smartwatch sleep monitor</span></li>
+                            <li><time>Jan 2026</time><strong>Joined UW Baja SAE</strong><span>Electrical sub-team</span></li>
+                            <li><time>Winter 2026</time><strong>WE Accelerate Program</strong><span>Accessibility &amp; usability audits</span></li>
+                            <li class="now"><time>Sep 2026</time><strong>Co-op at Boralex</strong><span>Oxford BESS project, Woodstock, ON</span></li>
+                        </ol>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== EXPERIENCE ===================== -->
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label"><span class="num">02</span>Experience</p>
+                    <h2 class="section-title">Where I've been putting it to work.</h2>
+                </div>
+
+                <ol class="timeline">
+                    <!-- Boralex -->
+                    <li class="job current reveal">
+                        <span class="job-node" aria-hidden="true"></span>
+                        <article class="card job-card">
+                            <div class="job-head">
+                                <img class="logo-tile" src="boralex--600.png" alt="Boralex logo" width="600" height="600">
+                                <div>
+                                    <h3>Electrical Site Coordinator Intern</h3>
+                                    <p class="org">Boralex Inc. · Woodstock, ON</p>
+                                </div>
+                            </div>
+                            <p class="meta-row"><span class="chip chip-now">Current</span><span class="chip">Sep 2026 – Dec 2026</span></p>
+                            <p>Working with the construction and engineering team on the 125 MW/500 MWh Oxford Battery Energy Storage System (BESS) project. Reporting directly to the Site Manager, I am responsible for monitoring and overseeing on-site electrical work while ensuring effective project management focused on quality, environmental compliance, and worker safety.</p>
+                            <ul class="bullets">
+                                <li>Conducting regular site inspections and auditing contractor work according to technical plans, specifications, and the overarching quality program.</li>
+                                <li>Maintaining direct communication with contractors to ensure strict compliance with health and safety requirements, environmental regulations, cost control, and project schedules.</li>
+                                <li>Drafting and reviewing vital project documentation, including progress reports, technical requests for information (RFIs), procurement tracking, and deficiency records.</li>
+                                <li>Ensuring all site activities fully comply with legal and regulatory approvals, the environmental management plan, and all associated permits.</li>
+                            </ul>
+                            <ul class="tags">
+                                <li>Battery energy storage</li>
+                                <li>Site inspection</li>
+                                <li>RFIs &amp; deficiency tracking</li>
+                                <li>Health &amp; safety</li>
+                                <li>Environmental compliance</li>
+                            </ul>
+                        </article>
+                    </li>
+
+                    <!-- Baja SAE -->
+                    <li class="job reveal">
+                        <span class="job-node" aria-hidden="true"></span>
+                        <article class="card job-card has-media">
+                            <div>
+                                <div class="job-head">
+                                    <span class="logo-tile" aria-hidden="true">SAE</span>
+                                    <div>
+                                        <h3>Electrical Team Member</h3>
+                                        <p class="org">University of Waterloo Baja SAE Team · Waterloo, ON</p>
+                                    </div>
+                                </div>
+                                <p class="meta-row"><span class="chip">Jan 2026 – Present</span></p>
+                                <p>As a core member of the electrical sub-team, I am deeply involved in designing and implementing the electronic backbone for our 10 HP off-road competition vehicle. My primary focus is on robust telemetry and system regulation in extreme environments.</p>
+                                <ul class="bullets">
+                                    <li>Integrating and testing a Data Acquisition (DAQ) system using Arduino, MPU6050 accelerometers, and custom RPM sensors to provide live vehicle diagnostics.</li>
+                                    <li>Designing custom PCBs, including a 19V-13V buck converter, to reliably regulate drill battery power for internal electrical components during harsh races.</li>
+                                    <li>Researching and coding strain gauges to extract live telemetry data, aiding the dynamics team in comprehensive system calibration.</li>
+                                    <li>Fabricating space-efficient wire harnesses and designing circuit schematics to ensure the 2026 vehicle is competition-ready and fault-tolerant.</li>
+                                </ul>
+                                <ul class="tags">
+                                    <li>DAQ</li>
+                                    <li>Arduino</li>
+                                    <li>MPU6050</li>
+                                    <li>Strain gauges</li>
+                                    <li>KiCad</li>
+                                    <li>Wire harnessing</li>
+                                </ul>
+                            </div>
+                            <figure class="job-media">
+                                <button class="zoom" type="button" data-zoom data-caption="Our Baja SAE chassis in the workshop, awaiting final electrical harnessing.">
+                                    <img src="baja-buggy.jpg" alt="University of Waterloo Baja SAE buggy in the workshop" width="1200" height="1600" loading="lazy">
+                                    <span class="zoom-hint" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                                </button>
+                                <figcaption>Our Baja SAE chassis in the workshop, awaiting final electrical harnessing.</figcaption>
+                            </figure>
+                        </article>
+                    </li>
+
+                    <!-- WE Accelerate -->
+                    <li class="job reveal">
+                        <span class="job-node" aria-hidden="true"></span>
+                        <article class="card job-card">
+                            <div class="job-head">
+                                <span class="logo-tile" aria-hidden="true">WE</span>
+                                <div>
+                                    <h3>Project Team Member</h3>
+                                    <p class="org">Waterloo Experience (WE) Accelerate Program · Remote</p>
+                                </div>
+                            </div>
+                            <p class="meta-row"><span class="chip">Winter 2026</span></p>
+                            <p>Conducted comprehensive accessibility and usability audits of five faculty co-op community pages, successfully identifying and documenting critical UI/UX failures. Developed digital accessibility micro-course modules with a strong focus on accessible HTML, CSS, and inclusive web design practices. Evaluated digital environments to ensure strict compliance with AODA and WCAG standards.</p>
+                            <ul class="tags">
+                                <li>WCAG</li>
+                                <li>AODA</li>
+                                <li>Accessible HTML &amp; CSS</li>
+                                <li>UX audits</li>
+                            </ul>
+                        </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===================== PROJECTS ===================== -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label"><span class="num">03</span>Projects</p>
+                    <h2 class="section-title">Hardware I've designed, built, and tested.</h2>
+                    <p class="section-intro">Click any image to enlarge it. Open "Implementation details" for the full engineering write-up.</p>
+                </div>
+
+                <div class="projects">
+
+                    <!-- P-01 Buck converter -->
+                    <article class="card project reveal" id="buck-converter">
+                        <div class="project-media">
+                            <div class="carousel media-fill" data-carousel role="region" aria-roledescription="carousel" aria-label="Buck converter design images">
+                                <div class="carousel-track" tabindex="0" aria-label="Use left and right arrow keys to change image">
+                                    <figure class="slide">
+                                        <button class="zoom" type="button" data-zoom data-caption="PCB routing and copper layout.">
+                                            <img src="buck-converter-layout.png" alt="PCB routing and copper layout of the buck converter board" width="964" height="966" loading="lazy">
+                                            <span class="zoom-hint" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                                        </button>
+                                        <figcaption>PCB routing and copper layout</figcaption>
+                                    </figure>
+                                    <figure class="slide">
+                                        <button class="zoom" type="button" data-zoom data-caption="KiCad 3D render of the populated power regulation board.">
+                                            <img src="buck-converter-3d.png" alt="KiCad 3D render of the populated 19V to 13V buck converter" width="990" height="956" loading="lazy">
+                                            <span class="zoom-hint" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                                        </button>
+                                        <figcaption>KiCad 3D render of the populated board</figcaption>
+                                    </figure>
+                                    <figure class="slide">
+                                        <button class="zoom" type="button" data-zoom data-caption="Schematic detailing the LM2596T-ADJ circuit.">
+                                            <img src="buck-converter-schematic.png" alt="Schematic of the LM2596T-ADJ buck converter circuit" width="1468" height="1210" loading="lazy">
+                                            <span class="zoom-hint" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                                        </button>
+                                        <figcaption>Schematic of the LM2596T-ADJ circuit</figcaption>
+                                    </figure>
+                                </div>
+                                <button class="car-btn prev" type="button" data-prev aria-label="Previous image"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+                                <button class="car-btn next" type="button" data-next aria-label="Next image"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+                                <div class="carousel-dots"></div>
+                            </div>
+                        </div>
+
+                        <div class="project-body">
+                            <p class="project-kicker"><span class="project-id">P-01</span><span>Baja SAE</span><span>Jan 2026 – Present</span></p>
+                            <h3>19V → 13V Buck Converter Board</h3>
+                            <p>To optimize our Baja SAE vehicle's electrical reliability, I engineered a custom step-down switching regulator PCB to convert a 19V drill battery input into a stable 13V output for our live telemetry framework.</p>
+
+                            <table class="spec">
+                                <caption>Key specs</caption>
+                                <tbody>
+                                    <tr><th scope="row">Input</th><td>19 V drill battery</td></tr>
+                                    <tr><th scope="row">Output</th><td>13 V regulated</td></tr>
+                                    <tr><th scope="row">Regulator</th><td>LM2596T-ADJ</td></tr>
+                                    <tr><th scope="row">Inductor</th><td>68 µH, 4 A saturation current</td></tr>
+                                    <tr><th scope="row">Rectifier</th><td>1N5822 Schottky diode</td></tr>
+                                    <tr><th scope="row">Design tool</th><td>KiCad</td></tr>
+                                </tbody>
+                            </table>
+
+                            <details class="more">
+                                <summary>Implementation details</summary>
+                                <ul class="bullets">
                                     <li><strong>Hardware Design:</strong> Engineered the schematic and routed the board in KiCad, incorporating an LM2596T-ADJ regulator, a 68µH (4A Isat) inductor, and a 1N5822 Schottky diode for high-efficiency power conversion.</li>
                                     <li><strong>Power Conditioning:</strong> Implemented 470µF and 330µF Low-ESR capacitors alongside 100nF X7R and 1nF bypass capacitors to minimize voltage ripple and electrical noise in extreme racing environments.</li>
                                     <li><strong>Integration:</strong> Designed the board with generic Phoenix terminal blocks to ensure secure, vibration-resistant wire harnessing to the vehicle's main DAQ system.</li>
                                 </ul>
-                            </div>
+                            </details>
+
+                            <ul class="tags">
+                                <li>Power electronics</li>
+                                <li>PCB design</li>
+                                <li>KiCad</li>
+                                <li>Switching regulators</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- P-02 RPM monitor -->
+                    <article class="card project reveal" id="rpm-monitor">
+                        <div class="project-media">
+                            <button class="zoom media-fill" type="button" data-zoom data-caption="Testing the ESP32 and HW-477 sensor logic via the Arduino IDE serial monitor.">
+                                <img src="esp32-rpm.jpg" alt="ESP32 and Hall effect sensor wired on a desk, with RPM readings on a laptop" width="1200" height="1600" loading="lazy">
+                                <span class="zoom-hint" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                            </button>
                         </div>
 
-                        <!-- CAROUSEL IMPLEMENTATION -->
-                        <div class="project-visual">
-                            <div class="carousel-container">
-                                <div class="carousel">
-                                    <!-- Item 1: Layout -->
-                                    <div class="carousel-item">
-                                        <img src="buck-converter-layout.png" alt="PCB layout and routing">
-                                        <div class="carousel-caption">PCB routing and copper layout.</div>
-                                    </div>
-                                    <!-- Item 2: 3D Render -->
-                                    <div class="carousel-item">
-                                        <img src="buck-converter-3d.png" alt="3D render of the 19V-13V Buck Converter">
-                                        <div class="carousel-caption">KiCad 3D render of the populated power regulation board.</div>
-                                    </div>
-                                    <!-- Item 3: Schematic -->
-                                    <div class="carousel-item">
-                                        <img src="buck-converter-schematic.png" alt="Schematic design">
-                                        <div class="carousel-caption">Logic schematic detailing the LM2596T-ADJ circuit.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="scroll-hint">← Swipe/Scroll to view render & schematic →</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+                        <div class="project-body">
+                            <p class="project-kicker"><span class="project-id">P-02</span><span>Baja SAE</span><span>Jan 2026 – Present</span></p>
+                            <h3>RPM Monitoring Device</h3>
+                            <p>To optimize our Baja SAE vehicle's performance, I engineered a custom rotational speed sensing solution using an ESP32 microcontroller and an HW-477 Hall Effect sensor to track wheel and engine RPM in real-time.</p>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <strong>RPM Monitoring Device (ESP32 & C++)</strong>
-                    <small>Jan 2026 - Present</small>
-                </div>
-                <div class="project-body">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-detail-block">
-                                <h4>System Overview</h4>
-                                <p>To optimize our Baja SAE vehicle's performance, I engineered a custom rotational speed sensing solution using an <strong>ESP32 microcontroller</strong> and an <strong>HW-477 Hall Effect sensor</strong> to track wheel and engine RPM in real-time.</p>
-                            </div>
+                            <table class="spec">
+                                <caption>Key specs</caption>
+                                <tbody>
+                                    <tr><th scope="row">Microcontroller</th><td>ESP32</td></tr>
+                                    <tr><th scope="row">Sensor</th><td>HW-477 Hall effect</td></tr>
+                                    <tr><th scope="row">Firmware</th><td>C++ (Arduino IDE)</td></tr>
+                                    <tr><th scope="row">Measures</th><td>Wheel &amp; engine RPM, real time</td></tr>
+                                    <tr><th scope="row">Feeds into</th><td>Vehicle DAQ, for CVT tuning</td></tr>
+                                </tbody>
+                            </table>
 
-                            <div class="project-detail-block">
-                                <h4>Technical Implementation</h4>
-                                <ul>
+                            <details class="more">
+                                <summary>Implementation details</summary>
+                                <ul class="bullets">
                                     <li><strong>Hardware:</strong> Wired and calibrated the HW-477 analog magnetic sensor to precisely trigger on passing ferrous targets, passing the analog signal into the ESP32.</li>
                                     <li><strong>Firmware (C++):</strong> Developed efficient code to process rapid analog magnetic signals, applying debouncing logic to calculate highly accurate, real-time RPM telemetry without overflowing the serial monitor.</li>
                                     <li><strong>Integration:</strong> Seamlessly integrated the sensor array into the vehicle's broader DAQ framework, allowing the engineering team to map RPM against accelerometer data for better CVT tuning.</li>
                                 </ul>
-                            </div>
+                            </details>
+
+                            <ul class="tags">
+                                <li>ESP32</li>
+                                <li>C++</li>
+                                <li>Hall effect sensing</li>
+                                <li>Telemetry</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- P-03 Sleep monitor -->
+                    <article class="card project reveal" id="sleep-monitor">
+                        <div class="project-media">
+                            <button class="zoom media-fill" type="button" data-zoom data-caption="Prototype hardware for the Arduino-based sleep tracking device.">
+                                <img src="project.jpg" alt="Smartwatch sleep monitor prototype worn on a hand, connected to a laptop" width="1200" height="1600" loading="lazy">
+                                <span class="zoom-hint" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                            </button>
                         </div>
 
-                        <div class="project-visual">
-                            <img src="esp32-rpm.jpg" alt="ESP32 RPM Monitor Testing via Arduino IDE">
-                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Testing the ESP32 and HW-477 sensor logic via the Arduino IDE serial monitor.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <div class="project-body">
+                            <p class="project-kicker"><span class="project-id">P-03</span><span>ECE 198</span><span>Sep 2025 – Dec 2025</span></p>
+                            <h3>Smartwatch Sleep Monitor</h3>
+                            <p>I engineered a low-cost, non-invasive wearable prototype utilizing the Arduino UNO R4 WiFi architecture to address hospital-induced delirium by monitoring patient sleep cycles.</p>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <strong>Smartwatch Sleep Monitor (ECE 198 Design Project)</strong>
-                    <small>Sept 2025 - Dec 2025</small>
-                </div>
-                <div class="project-body">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-detail-block">
-                                <h4>The Engineering Solution</h4>
-                                <p>I engineered a low-cost, non-invasive wearable prototype utilizing the <strong>Arduino UNO R4 WiFi</strong> architecture to address hospital-induced delirium by monitoring patient sleep cycles.</p>
-                                <ul>
+                            <table class="spec">
+                                <caption>Key specs</caption>
+                                <tbody>
+                                    <tr><th scope="row">Board</th><td>Arduino UNO R4 WiFi</td></tr>
+                                    <tr><th scope="row">Sensor</th><td>Pulse oximeter</td></tr>
+                                    <tr><th scope="row">Sleep threshold</th><td>&lt; 55 BPM</td></tr>
+                                    <tr><th scope="row">Wake threshold</th><td>&gt; 65 BPM (hysteresis)</td></tr>
+                                    <tr><th scope="row">Reporting</th><td>Daily email to caregivers over Wi-Fi</td></tr>
+                                </tbody>
+                            </table>
+
+                            <details class="more">
+                                <summary>Implementation details</summary>
+                                <ul class="bullets">
                                     <li><strong>Signal Processing (C++):</strong> Programmed firmware to filter raw data from the pulse oximeter. Implemented hysteresis thresholds (Sleep &lt; 55 BPM, Wake &gt; 65 BPM) to accurately detect sleep states.</li>
                                     <li><strong>IoT Connectivity:</strong> Implemented IoT functionality to securely transmit automated daily sleep reports and data arrays directly to caregivers via Gmail/Wi-Fi integration.</li>
                                     <li><strong>Validation:</strong> Validated system reliability through component testing, confirming accurate heart rate logging, state switching, and a high success rate of email data delivery.</li>
                                 </ul>
-                            </div>
-                        </div>
+                            </details>
 
-                        <div class="project-visual">
-                            <img src="project.jpg" alt="Smartwatch Sleep Monitor Prototype">
-                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Prototype hardware for the Arduino-based sleep tracking device.</p>
+                            <ul class="tags">
+                                <li>Arduino</li>
+                                <li>C++</li>
+                                <li>Signal processing</li>
+                                <li>IoT</li>
+                            </ul>
                         </div>
+                    </article>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SKILLS ===================== -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label"><span class="num">04</span>Skills</p>
+                    <h2 class="section-title">Technical toolkit.</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="card skill-card reveal">
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-chip"/></svg></span>
+                        <h3>Embedded &amp; IoT</h3>
+                        <ul class="tags">
+                            <li>Arduino</li>
+                            <li>ESP32</li>
+                            <li>IoT &amp; wireless protocols</li>
+                            <li>Data acquisition (DAQ)</li>
+                        </ul>
+                    </article>
+                    <article class="card skill-card reveal" style="--d: 1">
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-circuit"/></svg></span>
+                        <h3>Circuits &amp; PCB</h3>
+                        <ul class="tags">
+                            <li>Circuit analysis</li>
+                            <li>PCB design (KiCad)</li>
+                            <li>Sensor integration</li>
+                            <li>MPU6050</li>
+                            <li>Hall effect sensors</li>
+                        </ul>
+                    </article>
+                    <article class="card skill-card reveal" style="--d: 2">
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-code"/></svg></span>
+                        <h3>Programming</h3>
+                        <ul class="tags">
+                            <li>C++</li>
+                            <li>HTML &amp; CSS</li>
+                            <li>Accessible web (WCAG)</li>
+                        </ul>
+                    </article>
+                    <article class="card skill-card reveal" style="--d: 3">
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-wrench"/></svg></span>
+                        <h3>Fabrication</h3>
+                        <ul class="tags">
+                            <li>Wire harnessing</li>
+                            <li>Soldering</li>
+                            <li>Power tools</li>
+                            <li>Welding &amp; thermal cutting</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="also reveal">
+                    <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+                    <span><strong>Languages:</strong> Mandarin (fluent spoken)</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ===================== TRADES ===================== -->
+        <section class="section" id="trades">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label"><span class="num">05</span>Trades foundation</p>
+                    <h2 class="section-title">Hands-on before theory.</h2>
+                    <p class="section-intro">Completed during the VIU Trades Program (Sep 2024 – Feb 2025). This practical experience allows me to bridge the gap between abstract electrical design and physical, structural fabrication.</p>
+                </div>
+
+                <div class="trades-grid">
+                    <article class="card trade reveal">
+                        <span class="trade-num" aria-hidden="true">T-01</span>
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-bolt"/></svg></span>
+                        <h3>Electrical &amp; Circuitry</h3>
+                        <p>Fabricated electrical extension units entirely from scratch. This required strict interpretation of technical schematics and a deep understanding of current flow, ensuring all builds were in full compliance with CSA grounding and safety standards.</p>
+                    </article>
+                    <article class="card trade reveal" style="--d: 1">
+                        <span class="trade-num" aria-hidden="true">T-02</span>
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-car"/></svg></span>
+                        <h3>Automotive Diagnostics</h3>
+                        <p>Performed hands-on automotive maintenance, including brake pad replacements and fluid servicing. This instilled a practical understanding of vehicle mechanical systems, tight-tolerance assembly, and rigorous workshop safety protocols.</p>
+                    </article>
+                    <article class="card trade reveal">
+                        <span class="trade-num" aria-hidden="true">T-03</span>
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-ruler"/></svg></span>
+                        <h3>Precision Fabrication</h3>
+                        <p>Fabricated custom products using heavy industrial power tools. This process required applying precision finishing techniques, analyzing material properties under stress, and adjusting measurements on the fly to ensure perfect assembly fits.</p>
+                    </article>
+                    <article class="card trade reveal" style="--d: 1">
+                        <span class="trade-num" aria-hidden="true">T-04</span>
+                        <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-flame"/></svg></span>
+                        <h3>Thermal Cutting &amp; Welding</h3>
+                        <p>Utilized thermal cutting and welding techniques to separate and fuse metal components. Working with open flame and molten steel demanded extreme focus on heat control, structural integrity, and safety compliance.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACT ===================== -->
+        <section class="section section-contact" id="contact">
+            <div class="container">
+                <div class="contact-panel reveal">
+                    <p class="section-label"><span class="num">06</span>Contact</p>
+                    <h2>Let's connect.</h2>
+                    <p class="contact-lede">Currently completing my Fall 2026 co-op term as an Electrical Site Coordinator Intern at Boralex. The best way to reach me is by email.</p>
+
+                    <div class="email-row">
+                        <a class="email-big" href="mailto:kevinye0907@gmail.com">kevinye0907@gmail.com</a>
+                        <button class="btn btn-sm btn-on-dark" type="button" data-copy="kevinye0907@gmail.com">
+                            <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+                            <span class="label">Copy</span>
+                        </button>
+                    </div>
+
+                    <div class="contact-actions">
+                        <a class="btn btn-primary" href="Kevin_Shao_Resume.pdf" target="_blank" rel="noopener">
+                            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                            Resume
+                        </a>
+                        <a class="btn btn-on-dark" href="https://www.linkedin.com/in/kevin-shao-1b6358383/" target="_blank" rel="noopener">
+                            <svg class="icon filled" aria-hidden="true"><use href="#i-linkedin"/></svg>
+                            LinkedIn
+                        </a>
+                        <a class="btn btn-on-dark" href="https://github.com/kevinye0907" target="_blank" rel="noopener">
+                            <svg class="icon filled" aria-hidden="true"><use href="#i-github"/></svg>
+                            GitHub
+                        </a>
+                        <a class="btn btn-on-dark" href="tel:+12363334484">
+                            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                            236-333-4484
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h3 class="section-title">Trades & Mechanical Foundation</h3>
-            <p style="margin-bottom: 25px;"><em>Completed during the VIU Trades Program (Sep 2024 - Feb 2025). This practical experience allows me to bridge the gap between abstract electrical design and physical, structural fabrication.</em></p>
-            
-            <div class="trades-grid">
-                <div class="trade-item">
-                    <h4>Electrical & Circuitry</h4>
-                    <p>
-                        Fabricated electrical extension units entirely from scratch. This required strict interpretation of technical schematics and a deep understanding of current flow, ensuring all builds were in full compliance with CSA grounding and safety standards.
-                    </p>
-                </div>
-                <div class="trade-item">
-                    <h4>Automotive Diagnostics</h4>
-                    <p>
-                        Performed hands-on automotive maintenance, including brake pad replacements and fluid servicing. This instilled a practical understanding of vehicle mechanical systems, tight-tolerance assembly, and rigorous workshop safety protocols.
-                    </p>
-                </div>
-                <div class="trade-item">
-                    <h4>Precision Fabrication</h4>
-                    <p>
-                        Fabricated custom products using heavy industrial power tools. This process required applying precision finishing techniques, analyzing material properties under stress, and adjusting measurements on the fly to ensure perfect assembly fits.
-                    </p>
-                </div>
-                <div class="trade-item">
-                    <h4>Thermal Cutting & Welding</h4>
-                    <p>
-                        Utilized thermal cutting and welding techniques to separate and fuse metal components. Working with open flame and molten steel demanded extreme focus on heat control, structural integrity, and safety compliance.
-                    </p>
-                </div>
-            </div>
-        </section>
+    </main>
 
-    </div>
-
-    <footer>
-        <p><strong>Let's Connect</strong></p>
-        <p>Currently preparing for my upcoming Co-op term starting <strong>Fall 2026</strong>.</p>
-        <div class="contact-bar" style="background: #e0e0e0;">
-            <a href="mailto:Kevinye0907@gmail.com" style="color:var(--primary)">Kevinye0907@gmail.com</a>
-            <a href="tel:2363334484" style="color:var(--primary)">236-333-4484</a>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; <span id="year">2026</span> Cheng (Kevin) Shao</p>
+            <p>Built with HTML, CSS &amp; JavaScript · <a href="#top">Back to top ↑</a></p>
         </div>
-        <p style="margin-top: 2.5rem; font-size: 0.9rem; color: #888;">&copy; 2026 Cheng (Kevin) Shao. Built with HTML/CSS.</p>
     </footer>
+
+    <!-- Image lightbox -->
+    <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+        <figure>
+            <img alt="">
+            <figcaption></figcaption>
+        </figure>
+        <button class="icon-btn lightbox-close" type="button" data-close aria-label="Close image">
+            <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+    </dialog>
 
 </body>
 </html>
