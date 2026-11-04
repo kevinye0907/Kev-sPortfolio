@@ -12,9 +12,8 @@
     <meta name="theme-color" content="#003366">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23003366'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' fill='%23F4D03F' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
 
-    <!-- Apply saved theme before first paint to avoid a flash -->
+    <!-- Apply saved light/dark choice before first paint -->
     <script>
-        document.documentElement.classList.add('js');
         try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
 
@@ -91,25 +90,6 @@
 
         <!-- ===================== HERO ===================== -->
         <section class="hero" id="top">
-            <!-- Decorative PCB traces with moving "signals" -->
-            <svg class="hero-traces" viewBox="0 0 1200 640" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
-                <path class="trace" d="M560 120 H760 L800 160 H980 L1020 120 H1240"/>
-                <path class="trace" d="M620 250 H700 L740 290 H900 L940 250 H1060 L1100 290 H1240"/>
-                <path class="trace" d="M520 400 H820 L860 440 H1240"/>
-                <path class="trace" d="M700 560 H880 L920 520 H1240"/>
-                <path class="trace" d="M1000 -10 V40 L1040 80 V200 L1000 240"/>
-                <path class="signal" d="M560 120 H760 L800 160 H980 L1020 120 H1240"/>
-                <path class="signal s2" d="M620 250 H700 L740 290 H900 L940 250 H1060 L1100 290 H1240"/>
-                <path class="signal s3" d="M520 400 H820 L860 440 H1240"/>
-                <circle class="pad" cx="560" cy="120" r="7"/>
-                <circle class="pad" cx="620" cy="250" r="7"/>
-                <circle class="pad" cx="520" cy="400" r="7"/>
-                <circle class="pad" cx="700" cy="560" r="7"/>
-                <circle class="pad" cx="1000" cy="240" r="7"/>
-                <circle class="pad" cx="800" cy="160" r="4"/>
-                <circle class="pad" cx="940" cy="250" r="4"/>
-                <circle class="pad" cx="860" cy="440" r="4"/>
-            </svg>
 
             <div class="container">
                 <div class="hero-grid">
@@ -140,15 +120,9 @@
 
                     <div class="hero-visual">
                         <div class="portrait">
-                            <span class="tick tl" aria-hidden="true"></span>
-                            <span class="tick tr" aria-hidden="true"></span>
-                            <span class="tick bl" aria-hidden="true"></span>
-                            <span class="tick br" aria-hidden="true"></span>
                             <div class="portrait-frame">
                                 <img src="profile.jpg" alt="Portrait of Kevin Shao" width="705" height="800">
                             </div>
-                            <div class="float-chip chip-a" aria-hidden="true"><span class="mono-label">Team</span>UW Baja SAE · Electrical</div>
-                            <div class="float-chip chip-b" aria-hidden="true"><span class="mono-label">Co-op</span>Boralex · Oxford BESS</div>
                         </div>
                     </div>
                 </div>
@@ -165,19 +139,19 @@
         <!-- ===================== ABOUT ===================== -->
         <section class="section" id="about">
             <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label"><span class="num">01</span>About</p>
+                <div class="section-head">
+                    <p class="section-label">About</p>
                     <h2 class="section-title">From the trades shop to electrical engineering.</h2>
                 </div>
 
                 <div class="about-grid">
-                    <div class="about-text reveal">
+                    <div class="about-text">
                         <p>I am an Electrical Engineering student at the University of Waterloo, passionate about how hardware and software converge to solve physical problems. My academic focus lies in embedded systems, IoT architecture, and data acquisition (DAQ) circuitry.</p>
                         <p>My path to engineering was not traditional. Before entering Waterloo, I completed the VIU Trades Program, where I gained rigorous hands-on experience in automotive repair and electrical fabrication. While many engineers begin with theory, I began with a wrench and a multimeter.</p>
                         <p>From that experience came an unusual sense of how things fit together mechanically. Designing a circuit now involves more than lines on paper - it includes understanding how parts integrate into a larger system, heat management, and structural reliability. I have been applying these skills on the UW Baja SAE team, and I am currently completing my Fall 2026 co-op term as an Electrical Site Coordinator Intern at Boralex.</p>
                     </div>
 
-                    <aside class="card path reveal" style="--d: 1" aria-label="Timeline">
+                    <aside class="card path" aria-label="Timeline">
                         <h3>The path so far</h3>
                         <ol>
                             <li><time>Sep 2024</time><strong>VIU Trades Program</strong><span>Electrical, automotive, fabrication, welding</span></li>
@@ -194,14 +168,14 @@
         <!-- ===================== EXPERIENCE ===================== -->
         <section class="section" id="experience">
             <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label"><span class="num">02</span>Experience</p>
+                <div class="section-head">
+                    <p class="section-label">Experience</p>
                     <h2 class="section-title">Where I've been putting it to work.</h2>
                 </div>
 
                 <ol class="timeline">
                     <!-- Boralex -->
-                    <li class="job current reveal">
+                    <li class="job current">
                         <span class="job-node" aria-hidden="true"></span>
                         <article class="card job-card">
                             <div class="job-head">
@@ -230,7 +204,7 @@
                     </li>
 
                     <!-- Baja SAE -->
-                    <li class="job reveal">
+                    <li class="job">
                         <span class="job-node" aria-hidden="true"></span>
                         <article class="card job-card has-media">
                             <div>
@@ -269,7 +243,7 @@
                     </li>
 
                     <!-- WE Accelerate -->
-                    <li class="job reveal">
+                    <li class="job">
                         <span class="job-node" aria-hidden="true"></span>
                         <article class="card job-card">
                             <div class="job-head">
@@ -296,8 +270,8 @@
         <!-- ===================== PROJECTS ===================== -->
         <section class="section" id="projects">
             <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label"><span class="num">03</span>Projects</p>
+                <div class="section-head">
+                    <p class="section-label">Projects</p>
                     <h2 class="section-title">Hardware I've designed, built, and tested.</h2>
                     <p class="section-intro">Click any image to enlarge it. Open "Implementation details" for the full engineering write-up.</p>
                 </div>
@@ -305,7 +279,7 @@
                 <div class="projects">
 
                     <!-- P-01 Buck converter -->
-                    <article class="card project reveal" id="buck-converter">
+                    <article class="card project" id="buck-converter">
                         <div class="project-media">
                             <div class="carousel media-fill" data-carousel role="region" aria-roledescription="carousel" aria-label="Buck converter design images">
                                 <div class="carousel-track" tabindex="0" aria-label="Use left and right arrow keys to change image">
@@ -338,7 +312,7 @@
                         </div>
 
                         <div class="project-body">
-                            <p class="project-kicker"><span class="project-id">P-01</span><span>Baja SAE</span><span>Jan 2026 – Present</span></p>
+                            <p class="project-kicker"><span>Baja SAE</span><span>Jan 2026 – Present</span></p>
                             <h3>19V → 13V Buck Converter Board</h3>
                             <p>To optimize our Baja SAE vehicle's electrical reliability, I engineered a custom step-down switching regulator PCB to convert a 19V drill battery input into a stable 13V output for our live telemetry framework.</p>
 
@@ -373,7 +347,7 @@
                     </article>
 
                     <!-- P-02 RPM monitor -->
-                    <article class="card project reveal" id="rpm-monitor">
+                    <article class="card project" id="rpm-monitor">
                         <div class="project-media">
                             <button class="zoom media-fill" type="button" data-zoom data-caption="Testing the ESP32 and HW-477 sensor logic via the Arduino IDE serial monitor.">
                                 <img src="esp32-rpm.jpg" alt="ESP32 and Hall effect sensor wired on a desk, with RPM readings on a laptop" width="1200" height="1600" loading="lazy">
@@ -382,7 +356,7 @@
                         </div>
 
                         <div class="project-body">
-                            <p class="project-kicker"><span class="project-id">P-02</span><span>Baja SAE</span><span>Jan 2026 – Present</span></p>
+                            <p class="project-kicker"><span>Baja SAE</span><span>Jan 2026 – Present</span></p>
                             <h3>RPM Monitoring Device</h3>
                             <p>To optimize our Baja SAE vehicle's performance, I engineered a custom rotational speed sensing solution using an ESP32 microcontroller and an HW-477 Hall Effect sensor to track wheel and engine RPM in real-time.</p>
 
@@ -416,7 +390,7 @@
                     </article>
 
                     <!-- P-03 Sleep monitor -->
-                    <article class="card project reveal" id="sleep-monitor">
+                    <article class="card project" id="sleep-monitor">
                         <div class="project-media">
                             <button class="zoom media-fill" type="button" data-zoom data-caption="Prototype hardware for the Arduino-based sleep tracking device.">
                                 <img src="project.jpg" alt="Smartwatch sleep monitor prototype worn on a hand, connected to a laptop" width="1200" height="1600" loading="lazy">
@@ -425,7 +399,7 @@
                         </div>
 
                         <div class="project-body">
-                            <p class="project-kicker"><span class="project-id">P-03</span><span>ECE 198</span><span>Sep 2025 – Dec 2025</span></p>
+                            <p class="project-kicker"><span>ECE 198</span><span>Sep 2025 – Dec 2025</span></p>
                             <h3>Smartwatch Sleep Monitor</h3>
                             <p>I engineered a low-cost, non-invasive wearable prototype utilizing the Arduino UNO R4 WiFi architecture to address hospital-induced delirium by monitoring patient sleep cycles.</p>
 
@@ -465,13 +439,13 @@
         <!-- ===================== SKILLS ===================== -->
         <section class="section" id="skills">
             <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label"><span class="num">04</span>Skills</p>
+                <div class="section-head">
+                    <p class="section-label">Skills</p>
                     <h2 class="section-title">Technical toolkit.</h2>
                 </div>
 
                 <div class="skills-grid">
-                    <article class="card skill-card reveal">
+                    <article class="card skill-card">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-chip"/></svg></span>
                         <h3>Embedded &amp; IoT</h3>
                         <ul class="tags">
@@ -481,7 +455,7 @@
                             <li>Data acquisition (DAQ)</li>
                         </ul>
                     </article>
-                    <article class="card skill-card reveal" style="--d: 1">
+                    <article class="card skill-card">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-circuit"/></svg></span>
                         <h3>Circuits &amp; PCB</h3>
                         <ul class="tags">
@@ -492,7 +466,7 @@
                             <li>Hall effect sensors</li>
                         </ul>
                     </article>
-                    <article class="card skill-card reveal" style="--d: 2">
+                    <article class="card skill-card">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-code"/></svg></span>
                         <h3>Programming</h3>
                         <ul class="tags">
@@ -501,7 +475,7 @@
                             <li>Accessible web (WCAG)</li>
                         </ul>
                     </article>
-                    <article class="card skill-card reveal" style="--d: 3">
+                    <article class="card skill-card">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-wrench"/></svg></span>
                         <h3>Fabrication</h3>
                         <ul class="tags">
@@ -513,7 +487,7 @@
                     </article>
                 </div>
 
-                <p class="also reveal">
+                <p class="also">
                     <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
                     <span><strong>Languages:</strong> Mandarin (fluent spoken)</span>
                 </p>
@@ -523,33 +497,29 @@
         <!-- ===================== TRADES ===================== -->
         <section class="section" id="trades">
             <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label"><span class="num">05</span>Trades foundation</p>
+                <div class="section-head">
+                    <p class="section-label">Trades foundation</p>
                     <h2 class="section-title">Hands-on before theory.</h2>
                     <p class="section-intro">Completed during the VIU Trades Program (Sep 2024 – Feb 2025). This practical experience allows me to bridge the gap between abstract electrical design and physical, structural fabrication.</p>
                 </div>
 
                 <div class="trades-grid">
-                    <article class="card trade reveal">
-                        <span class="trade-num" aria-hidden="true">T-01</span>
+                    <article class="card trade">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-bolt"/></svg></span>
                         <h3>Electrical &amp; Circuitry</h3>
                         <p>Fabricated electrical extension units entirely from scratch. This required strict interpretation of technical schematics and a deep understanding of current flow, ensuring all builds were in full compliance with CSA grounding and safety standards.</p>
                     </article>
-                    <article class="card trade reveal" style="--d: 1">
-                        <span class="trade-num" aria-hidden="true">T-02</span>
+                    <article class="card trade">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-car"/></svg></span>
                         <h3>Automotive Diagnostics</h3>
                         <p>Performed hands-on automotive maintenance, including brake pad replacements and fluid servicing. This instilled a practical understanding of vehicle mechanical systems, tight-tolerance assembly, and rigorous workshop safety protocols.</p>
                     </article>
-                    <article class="card trade reveal">
-                        <span class="trade-num" aria-hidden="true">T-03</span>
+                    <article class="card trade">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-ruler"/></svg></span>
                         <h3>Precision Fabrication</h3>
                         <p>Fabricated custom products using heavy industrial power tools. This process required applying precision finishing techniques, analyzing material properties under stress, and adjusting measurements on the fly to ensure perfect assembly fits.</p>
                     </article>
-                    <article class="card trade reveal" style="--d: 1">
-                        <span class="trade-num" aria-hidden="true">T-04</span>
+                    <article class="card trade">
                         <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-flame"/></svg></span>
                         <h3>Thermal Cutting &amp; Welding</h3>
                         <p>Utilized thermal cutting and welding techniques to separate and fuse metal components. Working with open flame and molten steel demanded extreme focus on heat control, structural integrity, and safety compliance.</p>
@@ -561,8 +531,8 @@
         <!-- ===================== CONTACT ===================== -->
         <section class="section section-contact" id="contact">
             <div class="container">
-                <div class="contact-panel reveal">
-                    <p class="section-label"><span class="num">06</span>Contact</p>
+                <div class="contact-panel">
+                    <p class="section-label">Contact</p>
                     <h2>Let's connect.</h2>
                     <p class="contact-lede">Currently completing my Fall 2026 co-op term as an Electrical Site Coordinator Intern at Boralex. The best way to reach me is by email.</p>
 
